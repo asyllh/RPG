@@ -23,6 +23,17 @@ set(SOURCE_FILES
         JsonParsingError.cpp
         JsonWritingError.cpp
         SolidusEscaper.cpp
-        Value.cpp entity.h entityManager.h entityManager.cpp item.h item.cpp armor.h armor.cpp weapon.h weapon.cpp main.cpp inventory.h)
+        Value.cpp
+        entity.h
+        entityManager.h entityManager.cpp
+        item.h item.cpp
+        armour.h armour.cpp
+        weapon.h weapon.cpp
+        main.cpp
+        inventory.h inventory.cpp
+        dialogue.h
+        area.h area.cpp
+        door.h door.cpp
+        creature.h creature.cpp player.h player.cpp)
 
 add_executable(RPG ${SOURCE_FILES})

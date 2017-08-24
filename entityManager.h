@@ -1,4 +1,8 @@
-/* entityManager.h 23/08/2017 */
+/*--------------/
+ALH
+entityManager.h
+23/08/2017
+/--------------*/
 
 #ifndef ENTITYMANAGER_H
 #define ENTITYMANAGER_H

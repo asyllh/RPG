@@ -1,6 +1,10 @@
-/* armor.h 23/08/2017 */
-#ifndef ARMOR_H
-#define ARMOR_H
+/*--------------/
+ALH
+armour.h
+23/08/2017
+/--------------*/
+#ifndef ARMOUR_H
+#define ARMOUR_H
 
 #include <string>
 #include "JsonBox.h"
@@ -10,16 +14,16 @@ using namespace std;
 
 class EntityManager;
 
-class Armor : public Item {
+class Armour : public Item {
 public:
     int defence;
 
     //Constructors
-    Armor(string id, string name, string description, int defence);
-    Armor(string id, JsonBox::Value& v, EntityManager* mgr);
+    Armour(string id, string name, string description, int defence);
+    Armour(string id, JsonBox::Value &v, EntityManager *mgr);
 
-    //Load the armor from the Json value
-    void load(JsonBox::Value& v, EntityManager* mgr);
+    //Load the armour from the Json value
+    void load(JsonBox::Value &v, EntityManager *mgr);
 
 };
 

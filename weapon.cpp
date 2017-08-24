@@ -1,4 +1,8 @@
-/* weapon.cpp 23/08/2017 */
+/*--------------/
+ALH
+weapon.cpp
+23/08/2017
+/--------------*/
 
 #include <string>
 #include "JsonBox.h"
@@ -12,11 +16,11 @@ Weapon::Weapon(string id, string name, string description, int damage) : Item(id
     this->damage = damage;
 }
 
-Weapon::Weapon(string id, JsonBox::Value& v, EntityManager* mgr) : Item(id, v, mgr) {
+Weapon::Weapon(string id, JsonBox::Value &v, EntityManager *mgr) : Item(id, v, mgr) {
     this->load(v, mgr);
 }
 
-void Weapon::load(JsonBox::Value& v, EntityManager* mgr) {
+void Weapon::load(JsonBox::Value &v, EntityManager *mgr) {
     JsonBox::Object o = v.getObject();
     this->damage = o["damage"].getInteger();
     return;

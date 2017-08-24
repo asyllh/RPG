@@ -1,4 +1,8 @@
-/* entity.h 23/08/2017 */
+/*--------------/
+ALH
+entity.h
+23/08/2017
+/--------------*/
 
 #ifndef ENTITY_H
 #define ENTITY_H
@@ -25,7 +29,7 @@ public:
     virtual ~Entity(){} //virtual destructor
 
     //Pure virtual function stops Entity from being instantiated and forces it to be implemented in all derived types
-    virtual void load(JsonBox::Value& v, EntityManager* mgr) = 0;
+    virtual void load(JsonBox::Value &v, EntityManager *mgr) = 0;
     /* pure virutal function called "load" which every entity derived from Entity must implement.
      * By making it virtual, we're alllowing it to be overridden in the derived classes, and by
      * making it pure (the "=0" part) we turn Entity into an "abstract class"

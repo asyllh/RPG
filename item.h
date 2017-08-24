@@ -1,4 +1,8 @@
-/* item.h 23/08/2017 */
+/*--------------/
+ALH
+item.h
+23/08/2017
+/--------------*/
 /* Item class - will be used for anything the player can pick up and collect in their adventure through the dungeon.
  * Item class will also be used as a base class for Weapon and Armor - the Item class will define just the attributes they share,
  * specifically a name and a description.
@@ -29,10 +33,10 @@ public:
      * an Item into the game, hence it is included.
      */
     Item(string id, string name, string description);
-    Item(string id, JsonBox::Value& v, EntityManager* mgr); //main constructor
+    Item(string id, JsonBox::Value &v, EntityManager *mgr); //main constructor
 
     //Load the item information from the JSON value
-    virtual void load(JsonBox::Value& v, EntityManager* mgr);
+    virtual void load(JsonBox::Value &v, EntityManager *mgr);
 
 };
 

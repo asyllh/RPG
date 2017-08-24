@@ -1,4 +1,8 @@
-/* entityManager.cpp 23/08/2017 */
+/*--------------/
+ALH
+entityManager.cpp
+23/08/2017
+/--------------*/
 
 #include <string>
 #include <map>
@@ -7,7 +11,10 @@ using namespace std;
 #include "entityManager.h"
 #include "item.h"
 #include "weapon.h"
-#include "armor.h"
+#include "armour.h"
+#include "creature.h"
+#include "area.h"
+#include "door.h"
 
 template <class T>
 void EntityManager::loadJson(string filename) {
@@ -57,7 +64,7 @@ EntityManager::EntityManager() {} //Constructor - does nothing at all
 
 EntityManager::~EntityManager() { // Destructor - deallocates all the memory allocated by "new" in loadJson.
 
-    for(auto& entity : this->data){
+    for(auto &entity : this->data){
         delete entity.second;
     }
 }//end EntityManager::~EntityManager
@@ -65,16 +72,25 @@ EntityManager::~EntityManager() { // Destructor - deallocates all the memory all
 //Template specialisations
 template <> string entityToString<Item>() { return "item"; }
 template <> string entityToString<Weapon>() { return "weapon"; }
-template <> string entityToString<Armor>() { return "armor"; }
+template <> string entityToString<Armour>() { return "armour"; }
+template <> string entityToString<Creature>() { return "creature"; }
+template <> string entityToString<Area>() { return "area"; }
+template <> string entityToString<Door>() { return "door"; }
 
 //Template instantiations
 template void EntityManager::loadJson<Item>(string);
 template void EntityManager::loadJson<Weapon>(string);
-template void EntityManager::loadJson<Armor>(string);
+template void EntityManager::loadJson<Armour>(string);
+template void EntityManager::loadJson<Creature>(string);
+template void EntityManager::loadJson<Area>(string);
+template void EntityManager::loadJson<Door>(string);
 
 template Item* EntityManager::getEntity<Item>(string);
 template Weapon* EntityManager::getEntity<Weapon>(string);
-template Armor* EntityManager::getEntity<Armor>(string);
+template Armour* EntityManager::getEntity<Armour>(string);
+template Creature* EntityManager::getEntity<Creature>(string);
+template Area* EntityManager::getEntity<Area>(string);
+template Door* EntityManager::getEntity<Door>(string);
 
 /* NOTE: Whenever we add a new entity class, we must make sure to add an explcit instantiation or specialisation
  * for each of the function templates that corresponds to the new entity.
