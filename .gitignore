@@ -1,4 +1,6 @@
 #.gitignore for RPG
+Asyl.json
+Asyl_areas.json
 .vs/*
 Debug/*
 cmake-build-debug/
