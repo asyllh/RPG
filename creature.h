@@ -61,6 +61,9 @@ public:
     //Convert internal area id into a pointer
     Area* getAreaPtr(EntityManager* mgr);
 
+    //attack the target creature, reducing their health if necessary
+    int attack(Creature* target);
+
     /*Go through a door:
      * 0 = door is locked
      * 1 = door is unlocked using key

@@ -48,6 +48,46 @@ Area* Creature::getAreaPtr(EntityManager *mgr) {
     return mgr->getEntity<Area>(this->currentArea);
 }
 
+int Creature::attack(Creature *target) {
+
+    //Damage done
+    int damage = 0;
+
+    if(double(rand()) / RAND_MAX > target->evasion){
+
+        //calculate attack based on strength and weapon damage
+        int attack = this->strength + (this->equippedWeapon == nullptr ? 0 : this->equippedWeapon->damage);
+
+        //calculate defencebased on agility and armour defence
+        int defence = target->agility + (target->equippedArmour == nullptr ? 0 : target->equippedArmour->defence);
+
+        //1/32 chance of a critical hit
+        if(rand() % 32 == 0){
+            //ignore defence and do damage in rand [attack/2, attack]
+            damage = attack / 2 + rand() % (attack/2 + 1);
+        }
+        else{
+            //normal hit so factor in defence
+            int baseDamage = attack - defence / 2;
+
+            //do damage in range [baseDamage/4, baseDamage/2]
+            damage = baseDamage / 4 + rand() % (baseDamage/4 + 1);
+
+            //if the damage is zero, then have a 50% chance to do 1 damage
+            if(damage < 1){
+                damage = rand() % 2;
+            }
+        }
+        //damage the target
+        target->hp -=damage;
+    }
+
+    return damage;
+}
+
+
+
+
 int Creature::traverse(Door *door) {
     int flag = 2;
 

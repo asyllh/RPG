@@ -1,4 +1,4 @@
-#include <JsonBox/JsonParsingError.h>
+#include "JsonBox/JsonParsingError.h"
 
 namespace JsonBox {
 	JsonParsingError::JsonParsingError(const std::string &what) : std::runtime_error(what) {

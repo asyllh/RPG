@@ -34,6 +34,8 @@ set(SOURCE_FILES
         dialogue.h
         area.h area.cpp
         door.h door.cpp
-        creature.h creature.cpp player.h player.cpp)
+        creature.h creature.cpp
+        player.h player.cpp
+        battle.h battle.cpp)
 
 add_executable(RPG ${SOURCE_FILES})
